@@ -1,65 +1,44 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import config from '../config';
+
+library.add(faGithub, faLinkedin);
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <>
+      <section className="relative w-full px-8">
+        <div className="container mx-auto pt-10 max-w-7xl px-20">
+          <h1 className="w-3/4 text-4xl font-regular text-gray-700 pt-20 pb-10">
+            <span className="inline-block" role="img" aria-label="palette">
+              🎨
+            </span>
+            &nbsp;
+            <span className="inline-block font-bold text-gradient bg-gradient-to-r from-blue-500 via-purple-700 to-blue-600">
+              A Web Artisan
+            </span>
+            &nbsp;who loves to work with various kinds of project and stuff.
+          </h1>
         </div>
-      </main>
+      </section>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+      <section className="relative w-full px-8">
+        <div className="container mx-auto max-w-7xl px-20">
+          <div className="flex space-x-4">
+            {config.social.map((social, index) => (
+              <Link key={index} href={social.url} passHref={true}>
+                <a target="_blank" rel="noreferrer" alt={social.title}>
+                  <span className="h-6 w-6 flex items-center justify-center text-gray-700 hover:text-blue-700 transition duration-500 ease-in-out">
+                    <FontAwesomeIcon icon={['fab', social.icon]} />
+                  </span>
+                </a>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
