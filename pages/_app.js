@@ -1,10 +1,15 @@
-import '../styles/globals.css';
 import Head from 'next/head';
+import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import config from '../config';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    document.documentElement.lang = 'en';
+  });
+
   return (
     <div className="flex flex-col h-screen">
       <Head>

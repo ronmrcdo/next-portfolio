@@ -1,5 +1,5 @@
 export default {
-  title: 'Ron Mercado - Portfolio',
+  title: 'Ron Mercado',
   author: {
     name: 'Ron Mercado'
   },
