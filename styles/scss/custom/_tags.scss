@@ -1,0 +1,7 @@
+.tag--item {
+  @apply text-sm text-white py-2 px-3 font-bold mx-1;
+}
+
+.tag--item.tag--rounded {
+  @apply rounded-full
+}

@@ -1,0 +1,15 @@
+.project--list {
+  @apply w-full flex flex-col justify-center items-center py-10;
+}
+
+.project--list .project--item {
+  @apply px-2 mb-4 flex flex-col w-2/3 my-2;
+}
+
+.project--item .project--card {
+  @apply w-full bg-white rounded-md shadow-sm border p-6 transition duration-300 ease-in-out;
+}
+
+.project--item .project--card:hover {
+  @apply shadow-lg;
+}
