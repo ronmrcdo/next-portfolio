@@ -9,10 +9,10 @@ export default function About({ title }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <section className="relative w-full px-8">
-        <div className="container mx-auto pt-10 max-w-7xl px-20">
-          <h1 className="text-4xl font-bold text-gray-700">About Me</h1>
-          <p className="text-gray-700 py-10 w-2/3">
+      <section className="section--wrapper">
+        <div className="section--container">
+          <h1 className="page--title">About Me</h1>
+          <p className="text-gray-700 py-10 md:w-2/3 w-full text-justify">
             I practice the habit of learning and adapting in the fast-paced changes in technology. I
             have a background with CI/CD and also applying the best practices and technologies to my
             software development career.
@@ -28,9 +28,9 @@ export default function About({ title }) {
 
       <hr className="mt-10" />
 
-      <section className="relative w-full px-8">
-        <div className="container mx-auto pt-10 max-w-7xl px-20">
-          <h1 className="text-4xl font-bold text-gray-700 mb-5">Skills</h1>
+      <section className="section--wrapper">
+        <div className="section--container">
+          <h1 className="page--title mb-5">Skills</h1>
           <TreeSkill menuItems={skillTree} menuParentId={0} />
         </div>
       </section>

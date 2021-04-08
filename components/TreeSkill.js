@@ -8,7 +8,7 @@ export default function TreeSkill({ menuItems, menuParentId }) {
   }, []);
 
   return (
-    <ul className="pl-10 list-disc leading-loose">
+    <ul className="tree--item">
       {parentMenu.map((item, index) => (
         <li key={index}>
           {!item.hasSubMenu && <span>{item.name}</span>}

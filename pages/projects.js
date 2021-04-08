@@ -15,11 +15,11 @@ export default function Projects({ title }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <section className="relative w-full px-8">
-        <div className="container mx-auto pt-10 max-w-7xl px-20">
-          <h1 className="text-4xl font-bold text-gray-700">Projects</h1>
+      <section className="section--wrapper">
+        <div className="section--container">
+          <h1 className="page--title">Projects</h1>
 
-          <div className="w-full flex flex-col justify-center items-center py-10">
+          <div className="item--list">
             {projectList.map((project, index) => (
               <ProjectItem key={index} project={project} />
             ))}

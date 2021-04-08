@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import config from '../config';
-import '../styles/globals.css';
+import '../styles/scss/style.scss';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

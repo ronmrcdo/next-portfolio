@@ -1,0 +1,16 @@
+
+.social--list {
+  @apply flex space-x-4;
+}
+
+.social--list .social--item {
+  @apply h-6 w-6 flex items-center justify-center text-gray-700 transition duration-500 ease-in-out;
+}
+
+.social--list .social--item:hover {
+  @apply text-blue-700;
+}
+
+.tree--item {
+  @apply pl-10 list-disc leading-loose;
+}
