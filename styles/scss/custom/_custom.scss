@@ -1,15 +1,19 @@
-.project--list {
+.item--list {
   @apply w-full flex flex-col justify-center items-center py-10;
 }
 
-.project--list .project--item {
-  @apply px-2 mb-4 flex flex-col w-2/3 my-2;
+.item--list .item--wrapper {
+  @apply px-2 mb-4 flex flex-col w-full my-2;
+
+  @screen lg {
+    @apply w-2/3;
+  }
 }
 
-.project--item .project--card {
+.item--wrapper .item--card {
   @apply w-full bg-white rounded-md shadow-sm border p-6 transition duration-300 ease-in-out;
 }
 
-.project--item .project--card:hover {
+.item--wrapper .item--card:hover {
   @apply shadow-lg;
 }

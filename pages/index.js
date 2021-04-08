@@ -12,9 +12,9 @@ export default function Home({ title, social }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <section className="section--layout">
+      <section className="section--wrapper">
         <div className="section--container">
-          <h1 className="page--description">
+          <h1 className="page--description text-center lg:text-left">
             <span className="inline-block" role="img" aria-label="palette">
               🎨
             </span>
@@ -27,9 +27,9 @@ export default function Home({ title, social }) {
         </div>
       </section>
 
-      <section className="section--layout">
+      <section className="section--wrapper">
         <div className="section--container">
-          <div className="social--list">
+          <div className="social--list justify-center md:justify-start">
             {social.map((social, index) => (
               <Link key={index} href={social.url} passHref={true}>
                 <a target="_blank" rel="noopener noreferrer" aria-label={social.title}>

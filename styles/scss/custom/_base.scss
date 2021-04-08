@@ -1,9 +1,9 @@
-.section--layout {
+.section--wrapper {
   @apply relative w-full px-8;
 }
 
 .section--container {
-  @apply container mx-auto pt-10 max-w-7xl px-2;
+  @apply container mx-auto pt-5 max-w-7xl px-2;
 
   @screen lg {
     @apply px-20;
@@ -15,5 +15,9 @@
 }
 
 .page--description {
-  @apply w-3/4 text-4xl text-gray-700 pt-20 pb-10;
+  @apply w-full text-4xl text-gray-700;
+
+  @screen lg {
+    @apply w-3/4 pt-20 pb-10;
+  }
 }

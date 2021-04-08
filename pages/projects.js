@@ -15,11 +15,11 @@ export default function Projects({ title }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <section className="section--layout">
+      <section className="section--wrapper">
         <div className="section--container">
           <h1 className="page--title">Projects</h1>
 
-          <div className="project--list">
+          <div className="item--list">
             {projectList.map((project, index) => (
               <ProjectItem key={index} project={project} />
             ))}

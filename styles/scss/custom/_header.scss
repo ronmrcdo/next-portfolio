@@ -1,0 +1,23 @@
+.header--wrapper {
+  @apply relative w-full px-8 text-gray-700 bg-white;
+}
+
+.header--wrapper .header--container {
+  @apply container flex flex-wrap items-center justify-between py-10 px-2 max-w-7xl mx-auto;
+  
+  @screen md {
+    @apply flex-row;
+  }
+
+  @screen lg {
+    @apply px-20;
+  }
+}
+
+.header--container .logo {
+  @apply relative z-10 flex items-center w-auto select-none text-2xl font-bold tracking-tight text-gray-700 space-x-2;
+}
+
+nav.navbar--mobile {
+  @apply absolute z-20 top-20 left-0 flex-col font-semibold w-full bg-white shadow-md rounded-lg p-6 pt-0;
+}
