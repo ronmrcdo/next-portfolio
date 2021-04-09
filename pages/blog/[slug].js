@@ -16,7 +16,9 @@ function BlogTemplate({ content, data, err }) {
         <div className="section--container">
           <h1 className="page--title">{frontMatter.title}</h1>
 
-          <ReactMarkdown source={content} />
+          <div id="content--markdown" className="my-3">
+            <ReactMarkdown source={content} />
+          </div>
         </div>
       </section>
     </>
