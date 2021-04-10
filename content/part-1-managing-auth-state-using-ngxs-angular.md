@@ -1,5 +1,5 @@
 ---
-title: "Angular Authentication with NGXS and JWT"
+title: "Part 1 - Angular Authentication with NGXS and JWT"
 description: "Managing Authentication for Angular with JWT."
 date: "2020-10-01"
 keywords: "Angular,NGXS,Authentication,State Management"
@@ -18,7 +18,7 @@ State management is a method of managing the state of the application (front end
 > TypeScript features such as classes and decorators.
 
 ### Introduction
-In this article we will build a complete authentication solution using NGXS.
+In this article we will cover the auth state, auth service and dependencies.
 
 ### Getting Started
 **1. Install packages and import to app.module.ts**
@@ -29,7 +29,7 @@ Using npm
 
 Using yarn
 
-    yarn add @ngxs/store @ngxs/storage-plugin @ngxs/router-plugin
+    yarn add @ngxs/store @ngxs/storage-plugin @ngxs/router-plugin @auth0/angular-jwt
 
 Create a **store** folder in your src. This fille will automatically import your states, persistent keys to the app.module.ts
 
@@ -77,7 +77,7 @@ Import the dependencies on the app.module.ts
     })
     export class AppModule {}
 **2. Creating the Auth Service**
-First we need to create our auth service. This will communicate directly to the server using http. Inside src folder create the **service** folder and the **auth.service.ts**.
+First we need to create our auth service. This will communicate directly to the server using http client. Inside src folder create the **services** folder and the **auth.service.ts**.
 
     mkdir _services && touch _services/auth.service.ts
 
@@ -118,7 +118,7 @@ Inside the auth.service
     }
 
 **3. Creating the State**
-Inside your **src/_store** folder, Create another folder name **auth** and 
+Inside your **src/_store** folder, Create another folder name **auth** 
 
     mkdir auth
 
@@ -281,3 +281,95 @@ For index.ts you just need to export this state and actions
     export * from './auth.state.ts';
 
 
+**4. Using NGXS on the Login Component**
+
+On your login.component.html
+
+    // login.component.html
+    <form role="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+	    <mat-form-field appearance="outline">
+	        <mat-label>Email</mat-label>
+	        <input 
+	            matInput 
+	            formControlName="email" 
+	            placeholder="Email"
+	        />
+	    </mat-form-field>
+
+	    <mat-form-field appearance="outline">
+	        <mat-label>Password</mat-label>
+	        <input 
+	            matInput
+	            type="password"
+	            formControlName="password"
+	            placeholder="Password"
+	        />
+	    </mat-form-field>
+
+	    <div class="block">
+	        <button 
+	            mat-raised-button
+	            type="submit" 
+	            color="primary" 
+	            class="w-full"
+	        >
+	            Login
+	        </button>
+	    </div>
+    </form>
+This is a simple form for login. In your login.component.ts 
+
+    import { Component, OnDestroy } from '@angular/core;
+    import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+    import { Store } from '@ngxs/store';
+    import { Login } from '../../_store/auth';
+    import { takeUntil } from 'rxjs/operators';
+    import { Subject } from 'rxjs';
+    
+    @Component({
+      selector: 'app-login',
+      templateUrl: './login.component.html'
+    })
+    export class LoginComponent implements  OnDestroy {
+    
+      public form: FormGroup;
+      protected subscription: = new Subject();
+    
+      constructor(
+        private _fb: FormBuilder,
+        private _store: Store
+      ) {
+        this.form = this._fb.group({
+          email: [null, [Validators.required, Validators.email]],
+          password: [null, Validators.required]
+        });
+      }
+    
+      ngOnDestroy(): void {
+        this._subscription.next();
+        this._subscription.complete();
+      }
+    
+      onSubmit(): void {
+        const credentials = this.form.value;
+    
+        this._store
+          .dispatch(new Login(credentials))
+          .pipe(takeUntil(this._subscription))
+          .subscribe(
+            (res: any) => {
+              // Message
+            },
+            (err: any) => {
+              // Error Message
+            }
+          );
+      }
+    }
+
+So when the user submit the form, it will dispatch Login Action in the Auth State if the response is success it will redirect the user on the set fallback url.
+
+    // src/_store/auth/auth.state.ts
+    protected readonly fallbackUrl = 'dashboard';
+
+On the next part we will cover the **token interceptor**, **route guard** and **refresh token**.

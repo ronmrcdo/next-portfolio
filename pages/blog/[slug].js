@@ -3,7 +3,6 @@ import ReactMarkdown from 'react-markdown';
 import Custom404 from '../404';
 
 function BlogTemplate({ content, data, err }) {
-
   const frontMatter = data;
 
   if (err) {
@@ -32,7 +31,7 @@ BlogTemplate.getInitialProps = async (context) => {
     const content = await import(`../../content/${slug}.md`);
 
     const data = matter(content.default);
-  
+
     return data;
   } catch (err) {
     return {
@@ -41,7 +40,6 @@ BlogTemplate.getInitialProps = async (context) => {
       }
     };
   }
-  
-}
+};
 
 export default BlogTemplate;
