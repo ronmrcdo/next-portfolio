@@ -1,7 +1,8 @@
 export default {
   title: 'Ron Mercado',
   author: {
-    name: 'Ron Mercado'
+    name: 'Ron Mercado',
+    email: 'ronmercadoaa@gmail.com'
   },
   description: 'A web artisan.',
   keywords: [

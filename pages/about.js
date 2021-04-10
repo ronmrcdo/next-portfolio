@@ -3,7 +3,7 @@ import Head from 'next/head';
 import TreeSkill from '../components/TreeSkill';
 import { skillTree } from '../constant';
 
-export default function About({ title }) {
+export default function About({ title, email }) {
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ export default function About({ title }) {
           <div className="block">
             <span className="inline-block text-gray-700 font-bold mr-1">Email Address:</span>
             <Link href="mailto:ronmercadoaa@gmail.com">
-              <a className="text-blue-700">ronmercadoaa@gmail.com</a>
+              <a className="text-blue-700">{email}</a>
             </Link>
           </div>
         </div>
@@ -43,7 +43,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      title: siteData.default.title + ' | About'
+      title: siteData.default.title + ' | About',
+      email: siteData.default.author.email
     }
   };
 }
