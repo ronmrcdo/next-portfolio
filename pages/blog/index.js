@@ -20,21 +20,22 @@ export default function Blog({ blogs }) {
 }
 
 export async function getStaticProps() {
-  const fs = require("fs");
+  const fs = require('fs');
 
-  const files = fs.readdirSync(`${process.cwd()}/content`, "utf-8");
+  const files = fs.readdirSync(`${process.cwd()}/content`, 'utf-8');
 
   const items = files
-    .filter((fn) => fn.endsWith(".md"))
-    .map(async item => await getMetadata(item));
+    .filter((fn) => fn.endsWith('.md'))
+    .map(async (item) => await getMetadata(item));
 
+  /*eslint no-undef: 0*/
   const blogs = await Promise.all(items);
 
   return {
     props: {
       blogs
     }
-  }
+  };
 }
 
 const getMetadata = async (item) => {

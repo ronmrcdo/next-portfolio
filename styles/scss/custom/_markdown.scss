@@ -1,0 +1,23 @@
+#content--markdown {
+  @apply text-gray-700 mt-8;
+}
+
+#content--markdown h2 {
+  @apply text-2xl font-bold my-6;
+}
+
+#content--markdown h3 {
+  @apply text-xl font-semibold my-6;
+}
+
+#content--markdown p {
+  @apply my-4;
+}
+
+#content--markdown pre {
+  @apply my-8 bg-gray-200 p-4;
+}
+
+#content--markdown blockquote {
+  @apply relative my-8 p-4 italic border-l-4 bg-gray-100 text-gray-600 border-gray-500;
+}
