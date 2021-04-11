@@ -25,6 +25,12 @@ function MyApp({ Component, pageProps }) {
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
         <meta name="author" content={config.author} />
+        <meta property="og:title" content={config.title} />
+        <meta property="og:site_name" content={config.description} />
+        <meta property="og:url" content={config.website} />
+        <meta property="og:description" content={config.keywords.join(',')} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={config.imageUrl} />
       </Head>
 
       <Navbar />

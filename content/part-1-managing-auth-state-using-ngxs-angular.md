@@ -1,8 +1,8 @@
 ---
 title: "Part 1 - Angular Authentication with NGXS and JWT"
-description: "Managing Authentication for Angular with JWT."
+description: "Setting up JWT Authentication with NGXS on Angular - Part 1"
 date: "2020-10-01"
-keywords: "Angular,NGXS,Authentication,State Management"
+keywords: "Angular,NGXS,Authentication,State Management,JWT"
 ---
 
 State management is a method of managing the state of the application (front end). **NGXS** is a state management pattern and library for Angular.
