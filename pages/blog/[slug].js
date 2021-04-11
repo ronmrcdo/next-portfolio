@@ -1,9 +1,10 @@
 import matter from 'gray-matter';
+import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
 import Custom404 from '../404';
 
 function BlogTemplate({ content, data, err }) {
-  const frontMatter = data;
+  const { title, description, keywords } = data;
 
   if (err) {
     return <Custom404 />;
@@ -11,13 +12,18 @@ function BlogTemplate({ content, data, err }) {
 
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+      </Head>
       <section className="section--wrapper">
         <div className="section--container">
-          <h1 className="page--title">{frontMatter.title}</h1>
+          <h1 className="page--title">{title}</h1>
 
-          <div id="content--markdown" className="my-3">
+          <article id="content--markdown" className="my-3">
             <ReactMarkdown source={content} />
-          </div>
+          </article>
         </div>
       </section>
     </>
