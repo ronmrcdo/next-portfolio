@@ -4,11 +4,11 @@ import ReactMarkdown from 'react-markdown';
 import Custom404 from '../404';
 
 function BlogTemplate({ content, data, err }) {
-  const { title, description, keywords } = data;
-
   if (err) {
     return <Custom404 />;
   }
+
+  const { title, description, keywords } = data;
 
   return (
     <>

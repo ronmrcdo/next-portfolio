@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ronmrcdo.netlify.app/
+
+# Sitemaps
+Sitemap: https://ronmrcdo.netlify.app/sitemap.xml
