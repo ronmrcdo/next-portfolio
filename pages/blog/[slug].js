@@ -1,14 +1,12 @@
-import matter from 'gray-matter';
 import Head from 'next/head';
-import ReactMarkdown from 'react-markdown';
 import Custom404 from '../404';
 
-function BlogTemplate({ content, data, err }) {
+function BlogTemplate({ attributes, html, err }) {
   if (err) {
     return <Custom404 />;
   }
 
-  const { title, description, keywords } = data;
+  const { title, description, keywords } = attributes;
 
   return (
     <>
@@ -22,7 +20,7 @@ function BlogTemplate({ content, data, err }) {
           <h1 className="page--title">{title}</h1>
 
           <article id="content--markdown" className="my-3">
-            <ReactMarkdown source={content} />
+            <div dangerouslySetInnerHTML={{ __html: html }} />
           </article>
         </div>
       </section>
@@ -34,9 +32,7 @@ BlogTemplate.getInitialProps = async (context) => {
   const { slug } = context.query;
 
   try {
-    const content = await import(`../../content/${slug}.md`);
-
-    const data = matter(content.default);
+    const data = await import(`../../content/blog/${slug}.md`);
 
     return data;
   } catch (err) {
