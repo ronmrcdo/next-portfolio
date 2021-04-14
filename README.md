@@ -1,4 +1,7 @@
 ## ✨ My Portfolio
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/85bae4b6-cabb-4310-a90d-1ea287cfef22/deploy-status)](https://app.netlify.com/sites/ronmrcdo/deploys)
+
 This is my portfolio site. This target a static generated site. This will parse markdown files on content directory and compile to a page.
 
 ### 🚀 Stack used
