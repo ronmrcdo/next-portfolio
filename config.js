@@ -1,18 +1,12 @@
 export default {
-  title: 'Ron Mercado | Full Stack Developer',
+  title: 'Ron Mercado - Full Stack Developer',
   author: {
     name: 'Ron Mercado',
     email: 'ronmercadoaa@gmail.com'
   },
   website: 'http://ronmrcdo.netlify.app/',
   description: 'Ron Mercado - A Full Stack Developer',
-  keywords: [
-    'Software Engineer',
-    'Full Stack Developer',
-    'Angular Developer',
-    'VueJs Developer',
-    'Software Developer'
-  ],
+  keywords: ['Ron Mercado Full Stack Developer'],
   social: [
     {
       title: 'Github',

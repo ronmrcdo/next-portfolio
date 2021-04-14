@@ -3,7 +3,7 @@ import Tag from './Tag';
 
 export default function BlogItem({ blog }) {
   return (
-    <Link href={'/blog/' + blog.path} passHref={true}>
+    <Link href={'/blog/' + blog.slug} passHref={true}>
       <a className="item--wrapper">
         <div className="item--card">
           <h3 className="text-2xl font-bold text-gray-700">{blog.title}</h3>

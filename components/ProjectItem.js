@@ -11,7 +11,7 @@ export default function ProjectItem({ project }) {
           </h3>
           <p className="block py-5">{project.description}</p>
           <div className="flex flex-wrap w-full">
-            {project.tags.map((tag, index) => (
+            {project.keywords.split(',').map((tag, index) => (
               <Tag key={index} title={tag} />
             ))}
           </div>
