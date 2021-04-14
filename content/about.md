@@ -6,13 +6,15 @@ date: 2021-04-14
 I practice the habit of learning and adapting in the fast-paced changes in technology. I have a background with CI/CD and also applying the best practices and technologies to my software development career.
 </p>
 
-**Email Address**: <a href="mailto:ronmercadoaa@gmail.com" class="text-blue-700">ronmercadoaa@gmail.com</a>
+<div class="block mb-10">
+  <span class="font-bold mr-1">Email Address:</span> <a href="mailto:ronmercadoaa@gmail.com" class="text-blue-700">ronmercadoaa@gmail.com</a>
+</div>
 
 <hr class="mt-10">
 
-<h1 class="page--title">Skills</h1>
+<h1 class="page--title mt-10">Skills</h1>
 
-<ul class="tree--item">
+<ul class="tree--item mt-10">
   <li>
     <span>PHP</span>
     <ul class="tree--item">
